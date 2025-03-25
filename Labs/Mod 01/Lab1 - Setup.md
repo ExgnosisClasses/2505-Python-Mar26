@@ -68,7 +68,7 @@ Because we will be working in this env in our notebooks, we are installing Jupyt
 ```shell
 conda install jupyter
 conda install ipykernel
-python -m ipykernel install --user --name lab --display-name "Python (lab)"
+python -m ipykernel install --user --name labs --display-name "Python (lab)"
 ```
 
 <img src="images/kernel.png" width="600" alt="">    
