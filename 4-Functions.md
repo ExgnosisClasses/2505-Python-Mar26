@@ -497,3 +497,34 @@ run_login_test()
 The decorator `@report` is a message to python that when `run_login_test()` is called, the wrapper report should be called instead.  
 - This allows the logger to be us without having to go through all the code and replace `run_login_test()` with the decorated version
 
+### Additional Generator Example
+
+```python
+# Define a generator function
+def my_gen():
+    print("Generator started")
+    yield 1
+    print("Yielded 1")
+    yield 2
+    print("Yielded 2")
+    # No more yield, generator will now return (implicitly)
+
+# ---- PART 1: Using for-loop (automatically handles StopIteration) ----
+
+print("=== Using for-loop ===")
+for value in my_gen():
+    print(f"Received: {value}")
+
+# ---- PART 2: Using next() manually (shows StopIteration) ----
+
+print("\n=== Using next() manually ===")
+g = my_gen()  # This returns a generator object
+
+try:
+    print(next(g))  # Starts the generator, yields 1
+    print(next(g))  # Resumes, yields 2
+    print(next(g))  # No more yields -> StopIteration raised here
+except StopIteration:
+    print("Generator is done (StopIteration caught)")
+
+```
