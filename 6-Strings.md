@@ -169,7 +169,7 @@ Log out'''
 print(log.splitlines())
 ```
 
-### ✅ Combining Strings
+### Combining Strings
 
 ```python
 lines = ["Line1", "Line2", "Line3"]

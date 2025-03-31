@@ -8,14 +8,14 @@
 ### Problem:
 Your test crashes when dividing numbers, and you want to prevent it from failing if the input is bad.
 
-### ✅Solution:
+### Solution:
 
 ```python
 print("Starting test...")
 try:
     result = 10 / 0
 except ZeroDivisionError:
-    print("❌ You cannot divide by zero.")
+    print("You cannot divide by zero.")
 ```
 
 ### Explanation:
@@ -122,5 +122,3 @@ validate_input("oops")
 - `finally` always runs—great for cleanup tasks or teardown logic.
 
 ---
-
-S

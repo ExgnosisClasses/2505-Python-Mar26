@@ -23,7 +23,7 @@ print(message)
 
 ## String Indexing and Slicing
 
-### 🧩 Problem:
+### Problem:
 Given the string `"TC045:LoginTest:PASS"`, extract:
 - The test ID (`TC045`)
 - The test name (`LoginTest`)
@@ -114,7 +114,7 @@ if "timeout" in message.lower():
 ### Problem:
 You want to create a multiline string representing the steps in a test case and count the number of steps.
 
-### ✅ Solution:
+### Solution:
 
 ```python
 steps = '''
