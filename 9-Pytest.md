@@ -976,6 +976,8 @@ def test_function(mocker):
 Verifies that the most recent call to the mock was with the exact arguments provided.
 - Fails if called with different arguments of never called.
 
+---
+
 
 ```python
 def test_function(mocker):
@@ -983,6 +985,102 @@ def test_function(mocker):
     mock_func("search", 10)
 
     mock_func.assert_called_with("search", 10)
+
+```
+
+---
+
+## Test Classes
+
+A test class in pytest is a way to group related test functions together in one structure.
+- It allows:
+  - Better organization
+  - Logical grouping of tests
+  - Shared setup/teardown using class-level fixtures
+
+Let’s say we’re testing a simple calculator app with add() and subtract() functions.
+
+```python
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+```
+
+We can organize the tests into a test class
+
+```python
+from app.calc import add, subtract
+
+class TestCalculator:
+    def test_add_positive_numbers(self):
+        assert add(2, 3) == 5
+
+    def test_add_negative_numbers(self):
+        assert add(-1, -1) == -2
+
+    def test_subtract_positive_numbers(self):
+        assert subtract(10, 4) == 6
+
+    def test_subtract_with_zero(self):
+        assert subtract(7, 0) == 7
+
+```
+
+### How It Relates to a Test Suite
+
+ test suite is a collection of tests that are meant to be executed together.
+
+In pytest, a test suite is usually one or a combination the following:
+- A single test file
+- A test class
+- A group of files or directories
+- Or all tests in a project
+
+The TestCalculator class is like a mini test suite: a group of related test cases testing calculator behavior.
+
+If you have many classes across different modules, running pytest without any arguments collects and runs all of them, effectively forming a full test suite for your application.
+
+If you want to execute a single file of tests, use `pytest test_file.py`
+
+If you have multiple classes in a file and want to only run one class, specify the name of the class
+
+```shell
+pytest -v test_class.py::TestCalculator
+```
+
+To run a single method
+
+```shell
+pytest -v test_class.py::TestCalculator::test_add_positive_numbers
+```
+
+### Class Fixtures
+
+In the following example, we use class level fixture to set up for the test classes
+
+```python
+import pytest
+from app.calc import add, subtract
+
+# Class-scoped fixture
+@pytest.fixture(scope="class")
+def calc_data():
+    print("\n[SETUP] Creating calculator test data...")
+    data = {"a": 10, "b": 5}
+    yield data
+    print("[TEARDOWN] Cleaning up calculator test data...")
+
+class TestCalculator:
+    def test_add(self, calc_data):
+        result = add(calc_data["a"], calc_data["b"])
+        assert result == 15
+
+    def test_subtract(self, calc_data):
+        result = subtract(calc_data["a"], calc_data["b"])
+        assert result == 5
 
 ```
 ---

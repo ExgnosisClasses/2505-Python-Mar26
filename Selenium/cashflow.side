@@ -1,0 +1,237 @@
+{
+  "id": "15a22ef6-99b0-481a-aae4-7f6fcb1c4fbc",
+  "version": "2.0",
+  "name": "cashflow",
+  "url": "https://exgnosis.org",
+  "tests": [{
+    "id": "371e5f4f-683a-455d-a27a-ca495c88b9c1",
+    "name": "Approve",
+    "commands": [{
+      "id": "10e98aec-f6f3-4479-b92b-9a190142ad99",
+      "comment": "",
+      "command": "open",
+      "target": "/cashflow/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eb8d18c7-aeff-4802-9af3-d1e165bb607e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Line of Credit Calculator",
+      "targets": [
+        ["linkText=Line of Credit Calculator", "linkText"],
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Line of Credit Calculator')]", "xpath:link"],
+        ["xpath=//ul[@id='navlist']/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'calc.html')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Line of Credit Calculator')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a559be48-bfa2-4edf-a543-1a8922f0a39f",
+      "comment": "",
+      "command": "type",
+      "target": "id=income",
+      "targets": [
+        ["id=income", "id"],
+        ["name=income", "name"],
+        ["css=#income", "css:finder"],
+        ["xpath=//input[@id='income']", "xpath:attributes"],
+        ["xpath=//form[@id='f1']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "50000"
+    }, {
+      "id": "1876b81a-d6b9-40c4-9826-5853025fc1de",
+      "comment": "",
+      "command": "type",
+      "target": "id=credit",
+      "targets": [
+        ["id=credit", "id"],
+        ["css=#credit", "css:finder"],
+        ["xpath=//input[@id='credit']", "xpath:attributes"],
+        ["xpath=//form[@id='f1']/table/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": "750"
+    }, {
+      "id": "f985e8ab-2f70-4b4a-8872-691c3c18d1a4",
+      "comment": "",
+      "command": "type",
+      "target": "id=employment",
+      "targets": [
+        ["id=employment", "id"],
+        ["css=#employment", "css:finder"],
+        ["xpath=//input[@id='employment']", "xpath:attributes"],
+        ["xpath=//form[@id='f1']/table/tbody/tr[3]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "180"
+    }, {
+      "id": "e8915d50-2958-4195-9c06-ad7f55089fb9",
+      "comment": "",
+      "command": "click",
+      "target": "name=Calc",
+      "targets": [
+        ["name=Calc", "name"],
+        ["css=td:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='Calc']", "xpath:attributes"],
+        ["xpath=//form[@id='f1']/table/tbody/tr[4]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4093f29b-54d4-4b27-8e60-c0fce380fcf6",
+      "comment": "",
+      "command": "click",
+      "target": "css=h3:nth-child(2)",
+      "targets": [
+        ["css=h3:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='content']/h3", "xpath:idRelative"],
+        ["xpath=//div[3]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Please apply Today!!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb1f3318-b528-489a-b9c3-c9aabdff2d04",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3:nth-child(2)",
+      "targets": [
+        ["css=h3:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='content']/h3", "xpath:idRelative"],
+        ["xpath=//div[3]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Please apply Today!!')]", "xpath:innerText"]
+      ],
+      "value": "Please apply Today!!"
+    }, {
+      "id": "e7382b75-b3ab-4dc0-a266-722e3897894d",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f7b794ca-71cd-4e7a-928d-7324cb85e3ee",
+    "name": "LowIncome",
+    "commands": [{
+      "id": "9b1ece96-667b-41d3-80a0-e94566e7aaca",
+      "comment": "",
+      "command": "open",
+      "target": "/cashflow/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed8a7c38-7f0e-437c-ab0c-52573b9182e1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Line of Credit Calculator",
+      "targets": [
+        ["linkText=Line of Credit Calculator", "linkText"],
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Line of Credit Calculator')]", "xpath:link"],
+        ["xpath=//ul[@id='navlist']/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'calc.html')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Line of Credit Calculator')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f11d535e-369e-4123-b4f8-0abc20cbeaf9",
+      "comment": "",
+      "command": "type",
+      "target": "id=income",
+      "targets": [
+        ["id=income", "id"],
+        ["name=income", "name"],
+        ["css=#income", "css:finder"],
+        ["xpath=//input[@id='income']", "xpath:attributes"],
+        ["xpath=//form[@id='f1']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "49999"
+    }, {
+      "id": "c5f2e5f0-21f9-4058-9bf7-f962c3068ba0",
+      "comment": "",
+      "command": "type",
+      "target": "id=credit",
+      "targets": [
+        ["id=credit", "id"],
+        ["css=#credit", "css:finder"],
+        ["xpath=//input[@id='credit']", "xpath:attributes"],
+        ["xpath=//form[@id='f1']/table/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": "750"
+    }, {
+      "id": "ee1cb1b8-ebc5-4adc-b67b-f9b87dbfbf41",
+      "comment": "",
+      "command": "type",
+      "target": "id=employment",
+      "targets": [
+        ["id=employment", "id"],
+        ["css=#employment", "css:finder"],
+        ["xpath=//input[@id='employment']", "xpath:attributes"],
+        ["xpath=//form[@id='f1']/table/tbody/tr[3]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "180"
+    }, {
+      "id": "38f41b8a-39ae-477f-9584-251f5a3ca489",
+      "comment": "",
+      "command": "click",
+      "target": "name=Calc",
+      "targets": [
+        ["name=Calc", "name"],
+        ["css=td:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='Calc']", "xpath:attributes"],
+        ["xpath=//form[@id='f1']/table/tbody/tr[4]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "50d91c1c-8b87-49a1-bf91-e38532093b20",
+      "comment": "",
+      "command": "click",
+      "target": "css=h3:nth-child(2)",
+      "targets": [
+        ["css=h3:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='content']/h3", "xpath:idRelative"],
+        ["xpath=//div[3]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Your Income is too low')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "62d24fb7-8557-448b-a115-82777c87fe68",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3:nth-child(2)",
+      "targets": [
+        ["css=h3:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='content']/h3", "xpath:idRelative"],
+        ["xpath=//div[3]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Your Income is too low')]", "xpath:innerText"]
+      ],
+      "value": "Your Income is too low"
+    }, {
+      "id": "b141d67b-e31f-418b-8426-bb25b9a69371",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "8d81ac4f-f0fa-4ca1-970c-f69d5efcef1f",
+    "name": "Cashflow",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["371e5f4f-683a-455d-a27a-ca495c88b9c1", "f7b794ca-71cd-4e7a-928d-7324cb85e3ee"]
+  }],
+  "urls": ["https://exgnosis.org/"],
+  "plugins": []
+}
