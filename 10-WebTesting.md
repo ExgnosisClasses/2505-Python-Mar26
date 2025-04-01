@@ -423,6 +423,135 @@ class TestCashflow:
 
 ```
 
+### Setup
+
+To install and setup playwright
+
+```shell
+pip install playwright # Installs playwright
+playwright install # Install the required browser binaries
+pip install pytest-playwright # Install the pytest plugin
+```
+
+### Run an installation test
+
+Create a test file `test_ex.py` with the contents
+
+```python
+def test_example_is_accessible(page):
+    page.goto("https://example.com")
+    assert page.title() == "Example Domain"
+```
+
+Run it with pytest
+
+```shell
+pytest test_example.py
+```
+
+By default, playwright runs the test in headless mode so you don't see the browser, but you should see the output
+- Launches a browser using the built-in page fixture from pytest-playwright.
+- Goes to https://example.com.
+- Asserts the page title is exactly "Example Domain".
+
+```text
+collected 1 item
+
+test_example.py .                                          [100%]
+
+================== 1 passed in X.XXs ==================
+
+```
+
+### Using codegen
+
+The codegen tool is similar to the selenium IDE
+- It opens a browser window
+- Watches everything you do (like typing, clicking, navigating)
+- Generates clean Playwright code — either in Python, JavaScript, TypeScript, or other supported languages.
+
+Run codegen for your target URL
+
+```shell
+playwright codegen https://example.com
+```
+
+This opens two windows:
+- A browser window where you interact with the site
+- A terminal/code window showing the generated script
+
+Interact with the site
+- Click links
+- Fill in inputs
+- Submit forms
+
+As you do that, Playwright will live-generate code like:
+
+```python
+page.goto("https://example.com")
+page.get_by_text("More information").click()
+page.fill("input[name='email']", "test@example.com")
+```
+
+Choose the output language
+
+```shell
+playwright codegen --target python https://example.com
+```
+
+Supported values for --target:
+- python
+- python-async
+- javascript
+- typescript
+- csharp
+
+Save the Script
+
+Once done, copy the generated code and save it in a .py file (e.g., test_generated.py). Then you can run it with:
+
+```shell
+pytest test_generated.py
+```
+
+Other options
+
+- --device iPhone 13: Emulate mobile devices
+- --save-trace trace.zip: Record a trace for debugging
+- --output script.py: Automatically save the generated code to a file
+- --lang python: Alias for --target python
+
+```shell
+playwright codegen --target python --output my_script.py https://example.com
+```
+
+If you're running playwright codegen without --output, make sure to copy the code from the terminal before closing the browser — because it auto-quits otherwise.
+
+### Assertions
+
+When you click or hover over elements, Playwright tries to add helpful assertions to the generated code. For example:
+
+After you click a button or check an element's text
+- `expect(page.locator("h1")).to_have_text("Welcome")`
+
+This happens when Playwright can confidently detect a stable, testable property like text content, visibility, or state.
+
+#### Trigger Assertions During Recording
+
+- Hover over an element — Playwright may add a visibility assertion.
+- Click on static text elements — It may add a text assertion.
+- Use the right-click > Inspect selector feature in the browser pane to choose elements more precisely.
+- Look for the expect(...) lines appearing in the codegen pane as you interact.
+
+For More Control: Add Manual Assertions After Recording
+- If codegen doesn’t generate the exact assertion you want, you can easily add it yourself using:
+
+Current Limitations
+- Codegen does not support all possible assertions interactively.
+- It mostly focuses on actions (clicks, navigation, form fills) and basic assertions (e.g., element visible or has text).
+
+---
+
 ## Pipeline
 
 For reference.
@@ -528,3 +657,4 @@ jobs:
           path: test-results/results.xml
 
 ```
+
